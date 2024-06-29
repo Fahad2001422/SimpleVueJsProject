@@ -1,43 +1,36 @@
 <script setup>
 
-import { onMounted, ref } from 'vue';
-import { setInterval, clearInterval } from 'node:timers';
+import { ref } from 'vue';
 
 const name = ref('Unspecified user');
-const removed = ref(false);
-const seconds = ref(0);
-const firstMillisecond = Date.now();
 
-function incrementSeconds() {
-    const now = Date.now();
-    let difference = now - firstMillisecond;
-    difference /= 1000;
-    seconds.value = Math.floor(difference);
+let what = alertWhat;
+
+function alertWhat() {
+    alert("What?!");
 }
 
-let inter = setInterval(incrementSeconds, 1000);
-
-function manipulateInterval(interval) {
-    if (interval) {
-        clearInterval(interval);
-        return;
-    } else {
-        interval = setInterval(incrementSeconds, 1000);
-        return;
-    }
+function alertHow() {
+    alert("How?");
 }
+
+function invoke() {
+    if (what === alertWhat) what = alertHow;
+    else if (what === alertHow) what = alertWhat;
+}
+
+
 
 </script>
 
 <template>
     <main>
-        <div v-show="!removed">
-            <h2 id="hello">{{ name }}!</h2>
+        <div>
+            <h2 id="hello">Hello, {{ name }}!</h2>
             <input type="text" v-model="name" placeholder="Write your name here." />
-            <h3>It is now {{ seconds }} {{ seconds === 1 ? 'second' : 'seconds' }}.</h3>
         </div>
-        <button @click="removed = !removed">{{ removed ? "Display Introduction!" : "Hide Introduction!" }}</button>
-        <!-- <button @click="manipulateInterval(inter)">Stop Updating date</button> -->
+        <button @click="invoke">Change the alert!</button>
+        <button @click="what()">Invoke the alert!</button>
     </main>
 </template>
 
@@ -47,6 +40,21 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+div {
+    display: grid;
+    grid-template-areas: "greeting" "input";
+}
+
+div>h2 {
+    grid-area: greeting;
+    margin-bottom: 6.5px;
+}
+
+div>input {
+    grid-area: input;
+    margin-bottom: 6.5px;
 }
 
 h2 {
