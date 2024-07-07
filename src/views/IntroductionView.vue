@@ -14,9 +14,14 @@ function alertHow() {
     alert("How?");
 }
 
+function alertMessage() {
+    alert("WHAT THE FUCK ARE YOU DOING DOWN HERE?!")
+}
+
 function invoke() {
     if (what === alertWhat) what = alertHow;
-    else if (what === alertHow) what = alertWhat;
+    else if (what === alertHow) what = alertMessage;
+    else if (what === alertMessage) what = alertWhat;
 }
 
 
@@ -29,15 +34,17 @@ function invoke() {
             <h2 id="hello">Hello, {{ name }}!</h2>
             <input type="text" v-model="name" placeholder="Write your name here." />
         </div>
-        <button @click="invoke">Change the alert!</button>
-        <button @click="what()">Invoke the alert!</button>
+        <div class="buttons">
+            <button @click="invoke">Change the alert!</button>
+            <button @click="what">Invoke the alert!</button>
+        </div>
     </main>
 </template>
 
 <style scoped>
 main {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -47,19 +54,27 @@ div {
     grid-template-areas: "greeting" "input";
 }
 
-div>h2 {
+.buttons {
+    display: grid;
+    grid-template-areas: "Change Invoke";
+}
+
+#hello {
     grid-area: greeting;
     margin-bottom: 6.5px;
+    background-color: "#96D498";
+}
+
+#hello:hover {
+    background-color: "#888B67";
+    transition-property: background-color;
+    transition-duration: 4s;
+    transition-timing-function: ease-out;
 }
 
 div>input {
     grid-area: input;
     margin-bottom: 6.5px;
-}
-
-h2 {
-    margin-bottom: 40px;
-    color: "#0F5712"
 }
 
 input[type="text"] {

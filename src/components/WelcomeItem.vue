@@ -35,9 +35,18 @@ i {
 
 h3 {
   font-size: 1.2rem;
+  display: block;
   font-weight: 500;
   margin-bottom: 0.4rem;
   color: var(--color-heading);
+  transition-duration: 2s;
+  transition-property: all;
+  transition-timing-function: ease-in;
+}
+
+h3:hover {
+  background-color: "#331A5C";
+  color: "#4d1e55";
 }
 
 @media (min-width: 1024px) {

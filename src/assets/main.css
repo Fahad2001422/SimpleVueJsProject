@@ -15,10 +15,10 @@ a,
   padding: 3px;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+
+a:hover {
+  background-color: hsla(160, 100%, 37%, 0.3);
+  color: rgb(97, 99, 25);
 }
 
 @media (min-width: 1024px) {
@@ -29,7 +29,7 @@ a,
 
   #app {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 0.8fr;
     padding: 0 2rem;
   }
 }

@@ -38,6 +38,11 @@ h1 {
 p.f {
   color: red;
   font-size: large;
+  transition: 1s;
+}
+
+p.f:hover {
+  color: lightcoral;
 }
 
 p.useless {
