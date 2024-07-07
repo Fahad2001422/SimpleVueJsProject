@@ -37,6 +37,11 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  border: 4px solid #126816;
+  border-radius: 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 nav a.router-link-exact-active {
@@ -54,6 +59,10 @@ nav a {
 }
 
 nav a:first-of-type {
+  border: 0;
+}
+
+nav a:last-of-type {
   border: 0;
 }
 
