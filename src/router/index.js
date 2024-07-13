@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, isNavigationFailure } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -21,10 +21,6 @@ const router = createRouter({
       path: '/introduction',
       name: 'Introduction',
       component: () => import('@/views/IntroductionView.vue')
-    },
-    {
-      path: '/**',
-      redirect: { name: 'Home' }
     }
   ]
 })
