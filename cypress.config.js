@@ -11,5 +11,6 @@ export default defineConfig({
       framework: 'vue',
       bundler: 'vite'
     }
-  }
+  },
+  port: 5100
 })

@@ -1,8 +1,11 @@
 // https://on.cypress.io/api
 
 describe('My First Test', () => {
-  it('visits the app root url', () => {
+  it('root url', () => {
     cy.visit('/')
-    cy.contains('h1', 'You did it!')
+    cy.get('div.greetings').within(($div) => {
+      cy.get('a#vite').should('have.text', 'Vite');
+    })
+    cy.location().its('origin').should('contain', 'localhost');
   })
 })

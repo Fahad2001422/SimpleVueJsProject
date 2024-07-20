@@ -1,5 +1,9 @@
 <script setup>
-const now = Date.now();
+import { ref } from 'vue';
+import { format } from 'date-fns';
+
+const today = ref(format(new Date(), 'EEEE, PP p'));
+
 </script>
 
 <template>
@@ -8,7 +12,7 @@ const now = Date.now();
     <hr />
     <p class="f">Also, fuck you! &#128405;</p>
     <p>You should not have seen this page!
-      <span>It is now {{ now }} milliseconds from 1 January, 1970.</span>
+      It is now <span :style="{ color: '#BBA737' }">{{ today }}</span>.
     </p>
     <p class="useless">Another useless day.</p>
   </div>
