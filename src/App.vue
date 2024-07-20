@@ -11,7 +11,7 @@ import routes from '@/router/index.js'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
       <nav>
-        <RouterLink v-for="route in routes.getRoutes()" :to="{ name: route.name }" replace>
+        <RouterLink v-for="route in routes.getRoutes()" :to="{ name: route.name }" :replace="true">
           {{ route.name }}
         </RouterLink>
       </nav>
