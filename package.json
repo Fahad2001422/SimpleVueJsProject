@@ -13,6 +13,7 @@
     "test:unit:dev": "cypress open --component"
   },
   "dependencies": {
+    "date-fns": "^3.6.0",
     "pinia": "^2.1.7",
     "start-server-and-test": "^2.0.4",
     "vue": "^3.4.21",
