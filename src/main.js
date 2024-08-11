@@ -1,7 +1,7 @@
 import '@/assets/main.css'
-import { followingDotCursor } from '@/assets/cursor-effects/esm'
+import { followingDotCursor } from 'cursor-effects'
 
-import { createApp } from 'vue'
+import { createApp, provide } from 'vue'
 import App from '@/App.vue'
 import router from '@/router'
 
@@ -10,4 +10,4 @@ const app = createApp(App)
 app.use(router)
 app.mount('#app')
 
-new followingDotCursor({ element: document.body, color: 'darkgreen'})
+provide('cursor-effect', new followingDotCursor({ element: document.body, color: '#0c9b67'}))

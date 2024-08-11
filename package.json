@@ -13,6 +13,7 @@
     "test:unit:dev": "cypress open --component"
   },
   "dependencies": {
+    "cursor-effects": "^1.0.15",
     "date-fns": "^3.6.0",
     "pinia": "^2.1.7",
     "start-server-and-test": "^2.0.4",
