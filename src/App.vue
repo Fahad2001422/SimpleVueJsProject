@@ -11,9 +11,12 @@ import routes from '@/router/index.js'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
       <nav>
-        <RouterLink v-for="route in routes.getRoutes()" :to="{ name: route.name }" replace>
-          {{ route.name }}
-        </RouterLink>
+        <div class="link" v-for="route in routes.getRoutes()">
+          <!--Each link is represented by a <RouterLink> Vue component-->
+          <RouterLink :to="{ name: route.name }" replace>
+            {{ route.name }}
+          </RouterLink>
+        </div>
       </nav>
     </div>
   </header>
@@ -37,10 +40,8 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
-  border: 4px solid #126816;
-  border-radius: 1.5em;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: center;
 }
 
@@ -52,7 +53,7 @@ nav a.router-link-exact-active:hover {
   background-color: transparent;
 }
 
-nav a {
+nav .link {
   display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
@@ -84,7 +85,7 @@ nav a:last-of-type {
   }
 
   nav {
-    text-align: left;
+    text-align: center;
     margin-left: -1rem;
     font-size: 1rem;
 
